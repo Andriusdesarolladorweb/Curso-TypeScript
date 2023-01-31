@@ -1,0 +1,21 @@
+{
+  "name": "curso-typescrip",
+  "version": "1.0.0",
+  "description": "Proyecto de ejemplo del curso de TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Andriusdesarolladorweb/Curso-TypeScript"
+  },
+  "author": "@Andrius",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescri": "^1.0.4"
+  }
+}
