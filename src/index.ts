@@ -1,6 +1,7 @@
 import { error } from "console";
 import { type } from "os";
 import { Interface } from "readline";
+import { setCookie } from "cookies-utils";
 
 var nombre: string  = "";
 let email = "andriusrosa@gmail.com";
@@ -18,7 +19,6 @@ let a:string,b:number,c:boolean;
 //Lista de cadena de texto
 let listatarea: string[] = ["tarea1", "tarea2"]
 
-
 //Enumerados
 enum Estado  {
     "C",
@@ -27,7 +27,6 @@ enum Estado  {
 }
 
 let EstadoDeTarea: Estado = Estado.C;
-
 
 //INTEVACES 
 
@@ -43,7 +42,6 @@ let tarea1 : tarea = {
     Urgencia: 10
 }
  
-
 type Producto = {
     precio : number,
     nombre : string,
@@ -61,7 +59,6 @@ let conche : Producto = {
 console.log(conche.anio < 2010 ? `Coche ${conche.nombre} es viejo` : `Coche ${conche.nombre} es NUevo`)
 
 //Switch
-
 switch (tarea1.Estado) {
     case Estado.C:
         console.log("La tarea esta completada")
@@ -78,9 +75,7 @@ switch (tarea1.Estado) {
         break;
 }
 
-
 // Bucles
-
 let listatareaNueva : tarea[] = [
 
     {
@@ -103,7 +98,6 @@ let listatareaNueva : tarea[] = [
 ]
 
 //for clasico
-
 for (let index = 0; index <listatareaNueva.length; index++) {
     const tarea = listatareaNueva[index];
     console.log(`${index} - ${tarea.Nombre}`)  
@@ -157,7 +151,6 @@ mutipleParams(...Lista);
 }
 
 // Arrow fuction 
-
 type Empleado = {
     nombre: string,
     eda: number
@@ -197,9 +190,7 @@ const CobrarEmpleado =  (empleado : Empleado) =>  {
     console.log(`${empleado.nombre} cobra su salario`)
 }
 
-
 ObtenerSalario(EmpleadoAndrius, () => 'CobrarEmpleado' );
-
 
 //Async funtions
 async function ejemploAsync(): Promise<string> {
@@ -216,7 +207,6 @@ ejemploAsync()
 }).finally(() => "Todo ha terminado")
 
 //Generators
- 
 function* ejemploGenerators(){
 
     let index = 0;
@@ -232,7 +222,6 @@ let generadora = ejemploGenerators();
 console.log(generadora.next().value)
 
 // Worker
-
 function* wother(valor: number){
     yield valor;//emitimos del valor iniciar
     yield* Worker(valor);// llamos las emesiones 
@@ -254,3 +243,33 @@ console.log(gereratorSaga.next().value);
 console.log(gereratorSaga.next().value);
 console.log(gereratorSaga.next().value);
 console.log(gereratorSaga.next().value);
+
+
+// sobrecarga de funciones 
+function mostrarError(error: string){
+    console.log("un error", error)
+}
+
+//Persistencia de datos
+//1. LocalStorage --> Almacena los datos en el navegador (no se eliminan automaticamente).
+//2. SessionStorage --> la diferencia radica en la sesion de navegador. Es decir, los datos se pesisten en la sesion  de navegador.
+//3. Cookis --> Tienen una fechad caducida y tambien un ambito de URL
+
+//LocalStorage
+
+/*function guaradaEnLocalStorage (): void{
+    
+}*/
+//cookies
+const cookieOptions = {
+    name: "Usuario", // string,
+    value: "Andrius", // string,
+    expires: new Date(2099, 10, 1), // optional Date,
+    path: "/", // optional string,
+  
+  };
+
+  // seteamos la cookies
+  setCookie(cookieOptions)
+
+  
