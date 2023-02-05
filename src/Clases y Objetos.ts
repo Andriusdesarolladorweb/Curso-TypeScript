@@ -207,6 +207,15 @@ let trabajador03  = new Trabajador("Dariel", "Cruz",  25, 250.000);
 
 let jefe  = new  Jefe("Andrius", "Apellido", 18);
 
-jefe.trabajador.push( trabajor01, trabajador02, trabajador03);
+jefe.empleado.push( trabajor01, trabajador02, trabajador03);
 
 trabajor01.saludar(); //herencia de Persona 
+/*
+jefe.empleado.forEach((Trabajador: TR) => {
+   Trabajador.saludar();   
+});
+*/
+
+
+
+

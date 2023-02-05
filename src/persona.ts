@@ -15,8 +15,6 @@ export class Persona {
 }
 
 
-
-
 export class Trabajador extends Persona{
     sueldo : number;
 
@@ -28,7 +26,7 @@ export class Trabajador extends Persona{
 }
 
 export class Jefe extends Persona {
-    trabajador : Persona[] = [];
+    empleado: Persona[] = [];
     
     constructor(nombre : string, apellido : string, edad : number ){
         super(nombre, apellido, edad);
