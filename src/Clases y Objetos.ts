@@ -5,6 +5,8 @@ import { setCookie } from "cookies-utils";
 import { Curso } from "./models/Curso";
 import { Estudiantes } from "./models/Estudiantes";
 import { Lista_Cursos } from "./mock/Cursos.mok";
+import { Trabajador, Jefe } from "./persona";
+
 
 // Funciones 
 
@@ -183,3 +185,28 @@ Andrius.cursos.push(cursoAg); //añadimos
 Andrius.horasestudiadas;
 Andrius.Id_estudiantes;
 
+// saber la instacia de u objeto/variable 
+// -Typeof
+// -Instanceof
+
+let fechaNacimiento = new Date(2005,1,2);
+
+if(fechaNacimiento instanceof Date){
+    console.log("es una fecha")
+}
+
+if(Andrius instanceof Estudiantes){
+    console.log("es un estudiante")
+}
+
+//herencia  y polimorfismo
+
+let trabajor01  = new Trabajador("Diorkys", "Cabrera",  18, 25.000);
+let trabajador02  = new Trabajador("Camila", "Carrion",  19, 35.500);
+let trabajador03  = new Trabajador("Dariel", "Cruz",  25, 250.000);
+
+let jefe  = new  Jefe("Andrius", "Apellido", 18);
+
+jefe.trabajador.push( trabajor01, trabajador02, trabajador03);
+
+trabajor01.saludar(); //herencia de Persona 
