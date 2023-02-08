@@ -157,8 +157,23 @@ if (Andrius instanceof Estudiantes_1.Estudiantes) {
 //herencia  y polimorfismo
 let trabajor01 = new persona_1.Trabajador("Diorkys", "Cabrera", 18, 25.000);
 let trabajador02 = new persona_1.Trabajador("Camila", "Carrion", 19, 35.500);
-let trabajador03 = new persona_1.Trabajador("Dariel", "Cluz", 25, 250.000);
-trabajor01.saludar(); //herencia de Persona 
+let trabajador03 = new persona_1.Trabajador("Dariel", "Cruz", 25, 250.000);
 let jefe = new persona_1.Jefe("Andrius", "Apellido", 18);
-jefe.trabajador.push(trabajor01, trabajador02, trabajador03);
+jefe.empleado.push(trabajor01, trabajador02, trabajador03);
+trabajor01.saludar(); //herencia de Persona 
+/*
+jefe.empleado.forEach((Trabajador: TR) => {
+   Trabajador.saludar();
+});
+*/
+// use de intefaces
+let programar = {
+    titulo: "Programar en TS",
+    descripcion: "Practicar con Ts",
+    completada: false,
+    resume: function () {
+        return `${this.titulo} - ${this.completada}`;
+    }
+};
+console.log(programar.resume());
 //# sourceMappingURL=Clases%20y%20Objetos.js.map

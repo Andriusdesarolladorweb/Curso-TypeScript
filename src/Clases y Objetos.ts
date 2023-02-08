@@ -6,6 +6,8 @@ import { Curso } from "./models/Curso";
 import { Estudiantes } from "./models/Estudiantes";
 import { Lista_Cursos } from "./mock/Cursos.mok";
 import { Trabajador, Jefe } from "./persona";
+import { ITarea, Niveles } from "./models/interfaces/ITarea";
+import {  ProgramarTS } from "./models/Programar";
 
 
 // Funciones 
@@ -216,6 +218,71 @@ jefe.empleado.forEach((Trabajador: TR) => {
 });
 */
 
+// use de intefaces
+
+let programar : ITarea = {
+    titulo: "Programar en TS",
+    descripcion: "Practicar con Ts",
+    completada: false,
+    urgencia: Niveles.Urgente,
+    resume: function (): string {
+        
+        return  `${this.titulo} - ${this.completada} = niveles ${this.urgencia}`
+    }
+}
+
+console.log(programar.resume());
+
+//Tarea de programcion (implementa Itarea)
+
+let programacionTypescript = new ProgramarTS("Typescript", "Tarea de programacion Ts", false, Niveles.Bloqueante);
+
+console.log(programacionTypescript.resume());
 
 
+//Decoradores experimental --> @
+// -Clases
+// -Parametros
+// -Metodos
+// -Propiedades
 
+function override(label: string){
+    return function(targe:any, key:string){
+        Object.defineProperty(targe, key, {
+            configurable : false,
+            get: () => label
+        })
+    }
+}
+
+
+class PruebaDecorador{
+    @override('Prueba') //llamar a la funcion Override
+    nombre: string = "Andrius"
+}
+
+let prueba = new PruebaDecorador();
+
+console.log(prueba.nombre);
+
+// Otra Funció para Usarla Como decorador
+
+/*
+function soloLectura(target:any, key: String){
+    Object.defineProperty(target, key, {
+        writable: false
+    })
+}
+
+class PruebaSolaLectura{
+  @soloLectura
+  nombre: string = ""
+
+}
+
+
+let PruebaLectura = new PruebaSolaLectura();
+PruebaLectura.nombre = "Andrius";
+
+console.log(PruebaLectura.nombre) // ==> undefine, ya que no se le puede dar otro valor (Porque es solo lectura)
+*/

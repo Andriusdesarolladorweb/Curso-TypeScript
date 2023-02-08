@@ -22,7 +22,7 @@ exports.Trabajador = Trabajador;
 class Jefe extends Persona {
     constructor(nombre, apellido, edad) {
         super(nombre, apellido, edad);
-        this.trabajador = [];
+        this.empleado = [];
     }
 }
 exports.Jefe = Jefe;
